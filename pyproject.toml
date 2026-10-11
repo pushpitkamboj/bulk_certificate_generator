@@ -1,0 +1,38 @@
+[project]
+name = "bulk-certificate-generator"
+version = "0.1.0"
+description = "Bulk PDF certificate generation backend"
+readme = "README.md"
+authors = [
+    { name = "Pushpit Kamboj", email = "pushpitkamboj@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "alembic>=1.20.0",
+    "email-validator>=2.3.0",
+    "fastapi>=0.143.0",
+    "pydantic-settings>=2.15.0",
+    "python-multipart>=0.0.32",
+    "reportlab>=5.0.1",
+    "sqlalchemy>=2.1.4",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+bulk-certificate-generator = "bulk_certificate_generator.main:run"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "anyio>=4.15.1",
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
